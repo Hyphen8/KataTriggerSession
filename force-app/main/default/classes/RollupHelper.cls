@@ -1,7 +1,7 @@
 /**
  * @description       : 
  * @author            : daniel@hyphen8.com
- * @last modified on  : 14/09/2021
+ * @last modified on  : 21/09/2021
  * @last modified by  : daniel@hyphen8.com
 **/
 public with sharing class RollupHelper {
@@ -11,6 +11,23 @@ public with sharing class RollupHelper {
         for(Contact con : contacts){
             returnSet.add(con.AccountId);                     
         }
+        return returnSet;
+    }
+
+    public static Set<ID> getAccountIdsChanged(List<Contact> oldContacts, List<Contact> newContacts){
+        Set<ID> returnSet = new Set<ID>();
+        
+        for(Integer i = 0; i < newContacts.Size(); i++)
+        {
+            Contact oldCon = oldContacts.get(i);
+            Contact newCon = newContacts.get(i);
+            if(oldCon.AccountId != newCon.AccountId)
+            {
+                returnSet.add(oldCon.AccountId);
+                returnSet.add(newCon.AccountId);
+            }
+        }
+
         return returnSet;
     }
 
