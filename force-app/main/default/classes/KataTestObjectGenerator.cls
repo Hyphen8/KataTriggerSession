@@ -8,6 +8,8 @@ public without sharing class KataTestObjectGenerator extends TestObjectGenerator
     private Contact testContact;
     private Email_Log__c testEmailLog;
 
+    //TODO: We need methods for Contacts & Email Logs
+    //TODO: Do we need to create methods to return Lists, or will single records be sufficient?
     public override Account getAccount(){
         if (null == testAccount){
             testAccount = super.getAccount();

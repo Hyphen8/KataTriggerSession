@@ -1,7 +1,7 @@
 /**
  * @description  : Class to log Email Sends
  * @author       : simon@hyphen8.com
- * @created      : 21/09/2021
+ * @created      : 22/09/2021
 **/
 public without sharing class AccountSendEmailHandler implements AfterUpdate {
     public void handleAfterUpdate(List<Account> oldList, List<Account> newList){
@@ -21,6 +21,9 @@ public without sharing class AccountSendEmailHandler implements AfterUpdate {
     }
 
     private void doEmailSend(Set<Id> accountIdsToProcess){
+        //TODO: Update to use SObjectIndexes in the right places
+        //TODO: Can this method be re-factored?  Is there too much code in one method?
+        
         Map<Id, Map<String, List<Contact>>> contactsByAccountByEmail = new Map<Id, Map<String, List<Contact>>>();
         for (Contact contact : [
             SELECT Id, FirstName, LastName, Email, AccountId
