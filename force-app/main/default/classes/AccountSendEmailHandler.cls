@@ -1,7 +1,7 @@
 /**
  * @description  : Class to log Email Sends
  * @author       : simon@hyphen8.com
- * @created      : 22/09/2021
+ * @created      : 05/10/2021
 **/
 public without sharing class AccountSendEmailHandler implements AfterUpdate {
     public void handleAfterUpdate(List<Account> oldList, List<Account> newList){
@@ -52,28 +52,37 @@ public without sharing class AccountSendEmailHandler implements AfterUpdate {
             
         }
 
-        Map<String, List<Email_Log__c>> emailLogsByContactEmail = new Map<String, List<Email_Log__c>>();
-        for (Email_Log__c emailLog : [
-            SELECT Id, First_Name__c, Last_Name__c, Email__c, Last_Email_Sent__c
-            FROM Email_Log__c
-            WHERE Account__c IN :accountIdsToProcess
-        ]){
-            if (!emailLogsByContactEmail.containsKey(emailLog.Email__c)){
-                emailLogsByContactEmail.put(emailLog.Email__c, new List<Email_Log__c>{emailLog});
-            }else {
-                emailLogsByContactEmail.get(emailLog.Email__c).add(emailLog);
-            }
-        }
+        SObjectIndex contactIndex = new SObjectIndex('Email__c')
+            .putAll([
+                SELECT Id, First_Name__c, Last_Name__c, Email__c, Last_Email_Sent__c
+                FROM Email_Log__c
+                WHERE Account__c IN :accountIdsToProcess
+            ]);
+
+        // Map<String, List<Email_Log__c>> emailLogsByContactEmail = new Map<String, List<Email_Log__c>>();
+        // for (Email_Log__c emailLog : [
+        //     SELECT Id, First_Name__c, Last_Name__c, Email__c, Last_Email_Sent__c
+        //     FROM Email_Log__c
+        //     WHERE Account__c IN :accountIdsToProcess
+        // ]){
+        //     if (!emailLogsByContactEmail.containsKey(emailLog.Email__c)){
+        //         emailLogsByContactEmail.put(emailLog.Email__c, new List<Email_Log__c>{emailLog});
+        //     }else {
+        //         emailLogsByContactEmail.get(emailLog.Email__c).add(emailLog);
+        //     }
+        // }
 
         List<Email_Log__c> emailLogsToSave = new List<Email_Log__c>();
         for (Id accountId : accountIdsToProcess){
             Map<String, List<Contact>> contactsByEmail = contactsByAccountByEmail.get(accountId);
             for (String emailAddress : contactsByEmail.keySet()){
                 List<Contact> contacts = contactsByEmail.get(emailAddress);
-                List<Email_Log__c> emailLogs = emailLogsByContactEmail.get(emailAddress);
+                //List<Email_Log__c> emailLogs = contactIndex.getAll(emailAddress);
+                
                 //TODO:  What if there are no Email Logs yet?
                 //TODO:  We have enough information here to create one, using Contact data
-                for (Email_Log__c emailLog : emailLogs){
+
+                for (Email_Log__c emailLog : (List<Email_Log__c>)contactIndex.getAll(emailAddress)){
                     emailLog.Last_Email_Sent__c = System.now();
                     emailLogsToSave.add(emailLog);
                 }
