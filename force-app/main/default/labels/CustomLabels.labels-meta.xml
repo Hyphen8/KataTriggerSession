@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ApexLogger_Error_Label</fullName>
+        <categories>ApexLogger.cls</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ApexLogger Error Label</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>ApexLogger_Success_Label</fullName>
+        <categories>ApexLogger.cls</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ApexLogger Success Label</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>Email_Logs_Delete_Batch_Size</fullName>
+        <categories>CodeKata</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Logs Delete Batch Size</shortDescription>
+        <value>200</value>
+    </labels>
+    <labels>
+        <fullName>Maximum_Number_Of_Logs</fullName>
+        <categories>CodeKata</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Maximum Number Of Logs</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
+        <fullName>Number_Of_Logs_To_Delete</fullName>
+        <categories>CodeKata</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Number Of Logs To Delete</shortDescription>
+        <value>1</value>
+    </labels>
+    <labels>
+        <fullName>SObjectIndex_Case_Insensitive_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SObjectIndex Case Insensitive Error</shortDescription>
+        <value>Illegal State Exception</value>
+    </labels>
+</CustomLabels>
