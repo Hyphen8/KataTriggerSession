@@ -33,7 +33,6 @@ public with sharing class BatchDeleteEmailLogs implements Database.Batchable<SOb
             }
         }
 
-        //TODO:  Implement ApexTools.ApexLogger
         delete emailLogsToDelete;
     }
     
