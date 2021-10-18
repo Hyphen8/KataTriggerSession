@@ -1,7 +1,7 @@
 /**
- * @description  : 
+ * @description  : Batch class to delete no longer needed email logs
  * @author       : simon@hyphen8.com
- * @created      : 12/10/2021
+ * @created      : 18/10/2021
 **/
 public with sharing class BatchDeleteEmailLogs implements Database.Batchable<SObject>, Schedulable {
     
@@ -33,6 +33,7 @@ public with sharing class BatchDeleteEmailLogs implements Database.Batchable<SOb
             }
         }
 
+        //TODO:  Implement ApexTools.ApexLogger
         delete emailLogsToDelete;
     }
     
