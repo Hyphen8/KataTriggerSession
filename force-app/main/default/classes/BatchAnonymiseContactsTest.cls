@@ -1,7 +1,7 @@
 /**
  * @description  : 
  * @author       : simon@hyphen8.com
- * @created      : 18/10/2021
+ * @created      : 19/10/2021
 **/
 @IsTest
 public class BatchAnonymiseContactsTest {
@@ -15,7 +15,7 @@ public class BatchAnonymiseContactsTest {
                 FirstName = 'Test_' + i,
                 LastName = 'Contact_' + i,
                 Email = 'test_' + i + '.contact_' + i + '@myemail_' + i + '.com',
-                Phone = '0123456789' + (i < 10 ? '0' + i : ''+i)
+                MobilePhone = '0123456789' + (i < 10 ? '0' + i : ''+i)
             ));
         }
 
