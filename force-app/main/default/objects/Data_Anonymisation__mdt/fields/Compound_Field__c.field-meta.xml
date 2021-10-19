@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compound_Field__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Compound Field</label>
+    <metadataRelationshipControllingField>Data_Anonymisation__mdt.SObject__c</metadataRelationshipControllingField>
+    <referenceTo>EntityParticle</referenceTo>
+    <relationshipLabel>Data_Anonymisations</relationshipLabel>
+    <relationshipName>Data_Anonymisations</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+</CustomField>
