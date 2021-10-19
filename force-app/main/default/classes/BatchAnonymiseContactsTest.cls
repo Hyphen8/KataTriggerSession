@@ -32,7 +32,7 @@ public class BatchAnonymiseContactsTest {
             .addFieldValue('Length_of_Data__c',10)
             .addEntityDefinition('SObject__c','Contact')
             .addFieldDefinition('Field_Name__c','Email')
-            .getMockMetaData();
+            .getListMockMetaData();
 
 
         List<Data_Anonymisation__mdt> allMetaData = new List<Data_Anonymisation__mdt>();

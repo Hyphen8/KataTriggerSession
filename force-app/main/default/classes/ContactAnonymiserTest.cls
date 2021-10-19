@@ -29,8 +29,8 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Data_Type__c','String')
                     .addFieldValue('Length_of_Data__c',8)
                     .addEntityDefinition('SObject__c','Contact')
-                    .addFieldDefinition('Compound_Field__c',fieldToTest)
-                    .getMockMetaData();
+                    .addEntityParticle('Compound_Field__c',fieldToTest)
+                    .getListMockMetaData();
 
                 allMetaData.addAll(fieldMeta);
             }else if ('Email'.equalsIgnoreCase(fieldToTest)){
@@ -41,7 +41,7 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Length_of_Data__c',8)
                     .addEntityDefinition('SObject__c','Contact')
                     .addFieldDefinition('Field_Name__c',fieldToTest)
-                    .getMockMetaData();
+                    .getListMockMetaData();
 
                 List<Data_Anonymisation__mdt> fieldMetaDomain = new MockMetaManager('Data_Anonymisation__mdt')
                     .addFieldValue('MasterLabel', 'Contact ' + fieldToTest + ' Domain')
@@ -50,7 +50,7 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Length_of_Data__c',8)
                     .addEntityDefinition('SObject__c','Contact')
                     .addFieldDefinition('Field_Name__c',fieldToTest)
-                    .getMockMetaData();
+                    .getListMockMetaData();
 
                 allMetaData.addAll(fieldMeta);
                 allMetaData.addAll(fieldMetaDomain);
@@ -63,7 +63,7 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Length_of_Data__c',11)
                     .addEntityDefinition('SObject__c','Contact')
                     .addFieldDefinition('Field_Name__c',fieldToTest)
-                    .getMockMetaData();
+                    .getListMockMetaData();
 
                 allMetaData.addAll(fieldMeta);
             }
@@ -116,8 +116,8 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Data_Type__c','String')
                     .addFieldValue('Length_of_Data__c',8)
                     .addEntityDefinition('SObject__c','Contact')
-                    .addFieldDefinition('Compound_Field__c',fieldToTest)
-                    .getMockMetaData();
+                    .addEntityParticle('Compound_Field__c',fieldToTest)
+                    .getListMockMetaData();
 
                 allMetaData.addAll(fieldMeta);
             }else if ('Email'.equalsIgnoreCase(fieldToTest)){
@@ -128,7 +128,7 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Length_of_Data__c',8)
                     .addEntityDefinition('SObject__c','Contact')
                     .addFieldDefinition('Field_Name__c',fieldToTest)
-                    .getMockMetaData();
+                    .getListMockMetaData();
 
                 List<Data_Anonymisation__mdt> fieldMetaDomain = new MockMetaManager('Data_Anonymisation__mdt')
                     .addFieldValue('MasterLabel', 'Contact ' + fieldToTest + ' Domain')
@@ -137,7 +137,7 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Length_of_Data__c',8)
                     .addEntityDefinition('SObject__c','Contact')
                     .addFieldDefinition('Field_Name__c',fieldToTest)
-                    .getMockMetaData();
+                    .getListMockMetaData();
 
                 allMetaData.addAll(fieldMeta);
                 allMetaData.addAll(fieldMetaDomain);
@@ -150,7 +150,7 @@ public class ContactAnonymiserTest {
                     .addFieldValue('Length_of_Data__c',11)
                     .addEntityDefinition('SObject__c','Contact')
                     .addFieldDefinition('Field_Name__c',fieldToTest)
-                    .getMockMetaData();
+                    .getListMockMetaData();
 
                 allMetaData.addAll(fieldMeta);
             }
