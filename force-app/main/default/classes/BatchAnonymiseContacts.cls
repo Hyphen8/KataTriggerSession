@@ -41,7 +41,7 @@ public without sharing class BatchAnonymiseContacts implements Database.Batchabl
                 
         //SCOPE should be ALL Contacts in the org. returning the following fields:
         //FirstName, LastName, Email, MobilePhone
-        return Database.getQueryLocator(query);
+        return Database.getQueryLocator(query); 
     }
 
     public void execute(Database.BatchableContext batchableContext, List<Contact> scope){
